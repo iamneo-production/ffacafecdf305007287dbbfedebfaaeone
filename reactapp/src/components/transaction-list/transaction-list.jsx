@@ -15,7 +15,14 @@ const TransactionList = ({ list, onDeleteClick }) => {
         */}
          
          {/* Write a Code here */}
-         
+
+         {list.map((transaction) => (
+        <TransactionItem
+          key={transaction.id}
+          onDeleteClick={onDeleteClick}
+          {...transaction}
+        />
+      ))}
 
       </List>
     );
