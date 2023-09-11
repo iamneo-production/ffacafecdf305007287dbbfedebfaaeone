@@ -15,6 +15,7 @@ const TransactionList = ({ list, onDeleteClick }) => {
         */}
          
          {/* Write a Code here */}
+         
 
       </List>
     );

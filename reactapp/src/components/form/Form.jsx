@@ -70,7 +70,18 @@ function Form({ onSubmit }) {
       e.preventDefault();
   
       if (!descriptionRef.current) return;
-        
+      onSubmit({
+        id: Date.now(),
+        type,
+        description,
+        value: Number(value),
+      });
+
+      
+  
+      setDescription('');
+      setValue('');
+      descriptionRef.current.focus();
       // `onSubmit` should be called with form values like id, type(expense or income),description and value(number). 
   
   
@@ -87,7 +98,8 @@ function Form({ onSubmit }) {
     // This condition should check whether either the description or value is empty
 
     {/* Write a Code here */}
-  
+    const isButtonDisabled = description === '' || value === '';
+
     return (
       <FormStyles data-testid="form" onSubmit={handleSubmit}>
         <Select
@@ -122,7 +134,8 @@ function Form({ onSubmit }) {
           aria-label="submit"
           //Set the "type" attribute to "submit" to make this button trigger the form submission.
           //Use the "disabled" attribute to apply the "isButtonDisabled" variable
-
+          type="submit"
+          disabled={isButtonDisabled}
           // Write a Code here
         >
           <PlusIcon />
